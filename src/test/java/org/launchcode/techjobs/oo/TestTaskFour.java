@@ -1,4 +1,5 @@
 package org.launchcode.techjobs.oo;
+
 import mockit.Expectations;
 import mockit.Mocked;
 import mockit.Tested;
@@ -50,19 +51,19 @@ public class TestTaskFour extends AbstractTest {
     }
 
     // TODO - this test isn't matching the expectation properly.
-/*    @Test
-    public void testTestSettingJobIdCallsProperAssertion (@Mocked Assert mockedAssert) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
-        Class jobTestClass = getClassByName("test.JobTest");
-        JobTest jobTest = (JobTest) jobTestClass.getConstructor().newInstance();
-        Method testSettingJobIdMethod = jobTestClass.getMethod("testSettingJobId");
+//    @Test
+//    public void testTestSettingJobIdCallsProperAssertion (@Mocked Assert mockedAssert) throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, InstantiationException, IllegalAccessException {
+//        Class jobTestClass = getClassByName("test.JobTest");
+//        JobTest jobTest = (JobTest) jobTestClass.getConstructor().newInstance();
+//        Method testSettingJobIdMethod = jobTestClass.getMethod("testSettingJobId");
+//
+//        new Expectations() {{
+//            assertNotEquals(anyInt, anyInt);
+//        }};
+//
+//        testSettingJobIdMethod.invoke(jobTest);
+//    }
 
-        new Expectations() {{
-            assertNotEquals(anyInt, anyInt);
-        }};
-
-       testSettingJobIdMethod.invoke(jobTest);
-   }
-*/
     @Test
     public void testTestJobConstructorSetsAllFieldsExists () throws ClassNotFoundException {
         Class jobTestClass = getClassByName("test.JobTest");

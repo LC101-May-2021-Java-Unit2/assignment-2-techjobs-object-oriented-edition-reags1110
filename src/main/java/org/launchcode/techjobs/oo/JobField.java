@@ -1,12 +1,10 @@
 package org.launchcode.techjobs.oo;
 import java.util.Objects;
 
-
-public class JobField {
-    private static int nextId = 1;
-
-    private final int id;
-    private String value;
+public abstract class JobField {
+    protected int id;
+    protected static int nextId = 1;
+    protected String value;
 
     public JobField() {
         id = nextId;
@@ -18,26 +16,27 @@ public class JobField {
         this.value = value;
     }
 
+    // Custom toString, equals, and hashCode methods:
+
     @Override
     public String toString() {
-        if (this.value == "") {
-            return "Data not available";
-        }
-        return this.value;
+        return value;
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(Object o) {  // Two objects are equal if they have the same id.
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof JobField)) return false;
         JobField jobField = (JobField) o;
-        return id == jobField.id;
+        return getId() == jobField.getId();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id);
+        return Objects.hash(getId());
     }
+
+    // Getters and Setters:
 
     public int getId() {
         return id;
