@@ -1,11 +1,10 @@
 package org.launchcode.techjobs.oo;
-
 import mockit.Expectations;
 import mockit.Mocked;
 import mockit.Tested;
 import org.junit.Assert;
 import org.junit.Test;
-import org.launchcode.techjobs.oo.Tests.JobTest;
+import org.launchcode.techjobs.oo.tests.JobTest;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;

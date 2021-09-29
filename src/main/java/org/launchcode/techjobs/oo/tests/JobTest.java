@@ -1,4 +1,4 @@
-package org.launchcode.techjobs.oo.Tests;
+package org.launchcode.techjobs.oo.tests;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 import org.junit.Test;
@@ -8,10 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Arrays;
 
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.*;
 
 /**
  * Created by LaunchCode
@@ -30,7 +27,6 @@ public class JobTest {
         Job testJob = new Job("Product tester", new Employer("ACME"), new Location("Desert"), new PositionType("Quality control"), new CoreCompetency("Persistence"));
 
         assertTrue(testJob instanceof Job);
-
         assertEquals("Product tester", testJob.getName());
 
         assertTrue(testJob.getEmployer() instanceof Employer);
@@ -74,7 +70,7 @@ public class JobTest {
     }
 
     @Test
-    public void testToStringHandlesEmptyField() {
+    public void testTestToStringHandlesEmptyFieldCallsAssertions() {
         Job testJob = new Job();
 
         String[] lines = testJob.toString().trim().split("\n");

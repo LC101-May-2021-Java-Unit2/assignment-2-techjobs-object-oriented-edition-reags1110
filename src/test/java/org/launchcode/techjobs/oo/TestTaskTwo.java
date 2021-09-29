@@ -155,6 +155,8 @@ public class TestTaskTwo extends AbstractTest {
                 fail("PositionType does not declare an hashCode method");
             }
         }
+
+        assertEquals(hashCodeMethod.invoke(positionType), hashCodeMethod.invoke(positionType));
         assertNotEquals(hashCodeMethod.invoke(positionType), hashCodeMethod.invoke(anotherPositionType));
 
         // Use reflection to make both objects have the same id and test
