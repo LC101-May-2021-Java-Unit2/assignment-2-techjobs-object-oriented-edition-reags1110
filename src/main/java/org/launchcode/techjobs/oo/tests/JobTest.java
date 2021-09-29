@@ -4,6 +4,10 @@ import org.junit.Before;
 import org.junit.jupiter.api.Test;
 import org.launchcode.techjobs.oo.*;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import static org.junit.Assert.*;
 
 
@@ -19,7 +23,7 @@ public class JobTest{
 
 
     @Test
-    public void testSettingJobId() {
+    public void testSettingJobIdExists() {
         assertEquals(1, jobOne.getId());
         assertEquals(2, jobTwo.getId());
         assertFalse(jobOne.getId() == jobTwo.getId());
@@ -27,7 +31,7 @@ public class JobTest{
     }
 
     @Test
-    public void testJobConstructorSetsAllFields() {
+    public void testJobConstructorSetsAllFieldsCallsAsserts() {
         assertEquals(3, jobThree.getId());
         assertEquals("Product tester", jobThree.getName());
         assertEquals("ACME", jobThree.getEmployer().toString());
@@ -38,7 +42,7 @@ public class JobTest{
     }
 
     @Test
-    public void testJobsForEquality() {
+    public void testJobsForEqualityExists() {
        assertEquals(false, jobThree == jobFour);
     }
 
@@ -58,6 +62,23 @@ public class JobTest{
         assertTrue(toString.contains("Location: "));
         assertTrue(toString.contains("Position Type: "));
         assertTrue(toString.contains("Core Competency: "));
+    }
+
+    @Test
+    public void testToStringHandlesEmptyFieldCallsAssertions() {
+        Job testJob = new Job();
+
+        String[] lines = testJob.toString().trim().split("\n");
+
+        List<String> list = new ArrayList<String>(Arrays.asList(lines));
+
+        lines = list.toArray(new String[0]);
+
+        assertEquals(lines[1], "Name: Data not available");
+        assertEquals(lines[2], "Employer: Data not available");
+        assertEquals(lines[3], "Location: Data not available");
+        assertEquals(lines[4], "Position Type: Data not available");
+        assertEquals(lines[5], "Core Competency: Data not available");
     }
 
     @Test
