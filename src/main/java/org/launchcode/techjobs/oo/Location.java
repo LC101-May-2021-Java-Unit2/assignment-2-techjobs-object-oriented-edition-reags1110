@@ -1,7 +1,5 @@
 package org.launchcode.techjobs.oo;
 
-import java.util.Objects;
-
 public class Location extends JobField {
 
     public Location() {
@@ -14,7 +12,6 @@ public class Location extends JobField {
     public Location(String aValue) {
         super(aValue);
     }
-
     // Custom toString, equals, and hashCode methods:
 
 
@@ -23,26 +20,7 @@ public class Location extends JobField {
         if (this == o) return true;
         if (!(o instanceof Location)) return false;
         Location location = (Location) o;
-        return getId() == location.getId();
+        return this.getId() == location.getId();
     }
-
-   /* @Override
-    public int hashCode() {
-        return Objects.hash(getId());
-    }
-
-    // Getters and Setters:
-
-    public int getId() {
-        return id;
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    } */
 
 }
