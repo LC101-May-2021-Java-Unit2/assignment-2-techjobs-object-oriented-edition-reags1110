@@ -1,18 +1,22 @@
 
 package org.launchcode.techjobs.oo;
 
+import java.util.Objects;
+
 public class Employer extends JobField {
 
-    public Employer() {
-        super();
-    }
 
-    public  Employer(String value) {
+
+    public Employer(String value) {
         super(value);
     }
 
-    @Override
-    public boolean equals(Object o) {
-        return false;
-    }
+    // Custom toString, equals, and hashCode methods:
+
+
+
+
+    // Getters and Setters:
+
+
 }
