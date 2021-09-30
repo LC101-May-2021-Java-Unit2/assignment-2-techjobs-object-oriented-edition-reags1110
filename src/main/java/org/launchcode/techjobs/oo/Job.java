@@ -1,6 +1,6 @@
+
 package org.launchcode.techjobs.oo;
 
-import java.lang.reflect.Field;
 import java.util.Objects;
 
 public class Job {
@@ -14,9 +14,6 @@ public class Job {
     private PositionType positionType;
     private CoreCompetency coreCompetency;
 
-    // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
-    //  other five fields. The second constructor should also call the first in order to initialize
-    //  the 'id' field.
 
     public Job() {
         id = nextId;
@@ -32,47 +29,11 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
 
-    // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
-    //  match.
-
-    @Override
-    public String toString() {
-        String[] labels = {"ID: ", "Name: ", "Employer: ", "Location: ", "Position Type: ", "Core Competency: "};
-        Field[] fields = Job.class.getDeclaredFields();
-        String unavailable = "Data not available";
-        String message = "\n";
-        int index = 0;
-
-        for (Field f : fields) {
-            if (f.getName() == "nextId") {
-            } else {
-                try {
-                    if (f.get(this) instanceof JobField) {
-                        if (((JobField) f.get(this)).getValue() == "") {
-                            message = message + labels[index] + unavailable + "\n";
-                        } else {
-                            message = message + labels[index] + f.get(this) + "\n";
-                        }
-                    } else if (f.get(this) == null || f.get(this) == "") {
-                        message = message + labels[index] + unavailable + "\n";
-                    } else {
-                        message = message + labels[index] + f.get(this) + "\n";
-                    }
-                    index++;
-                } catch (Exception e) {
-                    message = message + labels[index] + unavailable + "\n";
-                    index++;
-                }
-            }
-        }
-
-        return message;
-    }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (!(o instanceof Job)) return false;
         Job job = (Job) o;
         return id == job.id;
     }
@@ -83,9 +44,9 @@ public class Job {
     }
 
 
-    // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
-    //  and id.
-
+    public int getId() {
+        return id;
+    }
 
     public String getName() {
         return name;
@@ -127,7 +88,30 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
 
-    public int getId() {
-        return id;
+    @Override
+    public String toString() {
+        String na = "Data not available";
+        if (name == null || name == "") {
+            name = na;
+        }
+        if (employer == null || employer.getValue() == "") {
+            employer.setValue(na);
+        }
+        if (location == null || location.getValue() == "") {
+            location.setValue(na);
+        }
+        if (positionType == null || positionType.getValue() == "") {
+            positionType.setValue(na);
+        }
+        if (coreCompetency == null || coreCompetency.getValue() == "") {
+            coreCompetency.setValue(na);
+        }
+
+        return "\n" + "ID: " + id + "\n" +
+                "Name: " + name + "\n" +
+                "Employer: " + employer + "\n" +
+                "Location: " + location + "\n" +
+                "Position Type: " + positionType + "\n" +
+                "Core Competency: " + coreCompetency + "\n";
     }
 }

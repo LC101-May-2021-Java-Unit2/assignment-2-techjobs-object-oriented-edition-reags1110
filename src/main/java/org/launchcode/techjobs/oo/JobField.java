@@ -1,13 +1,14 @@
 package org.launchcode.techjobs.oo;
+
 import java.util.Objects;
 
 public abstract class JobField {
-    protected int id;
-    protected static int nextId = 1;
-    protected String value;
+    private int id;
+    private static int nextId = 1;
+    private String value;
 
     public JobField() {
-        id = nextId;
+        this.id = nextId;
         nextId++;
     }
 
@@ -16,7 +17,18 @@ public abstract class JobField {
         this.value = value;
     }
 
-    // Custom toString, equals, and hashCode methods:
+    public int getId() {
+        return id;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+
 
     @Override
     public String toString() {
@@ -36,17 +48,4 @@ public abstract class JobField {
         return Objects.hash(getId());
     }
 
-    // Getters and Setters:
-
-    public int getId() {
-        return id;
-    }
-
-    public String getValue() {
-        return value;
-    }
-
-    public void setValue(String value) {
-        this.value = value;
-    }
 }
