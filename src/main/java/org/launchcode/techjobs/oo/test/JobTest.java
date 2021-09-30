@@ -1,6 +1,5 @@
-package org.launchcode.techjobs.oo.tests;
+package org.launchcode.techjobs.oo.test;
 
-import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
@@ -9,8 +8,6 @@ import org.launchcode.techjobs.oo.*;
 
 
 import static org.junit.Assert.*;
-
-import javax.xml.namespace.QName;
 
 /**
  * Created by LaunchCode
